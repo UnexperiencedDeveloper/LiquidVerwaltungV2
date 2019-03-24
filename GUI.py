@@ -4,6 +4,7 @@ import addAromaGUI
 import connectionDB
 import fillUp
 from PyQt5 import QtWidgets, uic,QtCore
+from PyQt5.QtGui import QPixmap
 
 
 version = "0.0.1"
@@ -19,7 +20,7 @@ class GUI(QtWidgets.QMainWindow):
         super().__init__(parent)
         self.ui = uic.loadUi("gui.ui", self)
 
-        # TODO Versiob Control
+        # TODO Version Control
         #if version != "0.0.2":
          #   QtWidgets.QMessageBox.about(self,"Achtung","Neue Version verfügbar!")
 
@@ -100,14 +101,15 @@ class GUI(QtWidgets.QMainWindow):
             menge = self.ui.lbl_menge
             preis = self.ui.lbl_preis
             geschmack = self.ui.lbl_geschmack
-            bewertung = self.ui.lbl_bewertung
+
 
             marke.setText(data[1])
             menge.setText(str(data[2])+"ml")
             mix.setText(str(data[3])+"%")
             preis.setText((data[4]+ "€"))
             geschmack.setText(data[5])
-            bewertung.setText(str(data[6]))
+            #bewertung.setText(str(data[6]))
+            self.ui.lbl_bewertung.setPixmap(QPixmap("Icons\\{0}_rating".format(str(data[6]))))
 
             # Start Timer for AutoUpdating Attributes
             self.timer_Attr.start(300)
