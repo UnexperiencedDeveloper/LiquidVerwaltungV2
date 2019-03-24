@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets, uic
+from PyQt5.QtGui import QPixmap
 import connectionDB
 
 class GUI(QtWidgets.QMainWindow):
@@ -17,7 +18,8 @@ class GUI(QtWidgets.QMainWindow):
 
 
     def sliderChanged(self):
-        self.ui.lbl_sliderValue.setText(str(self.ui.slider_bewertung.value()))
+        sliderValue = self.ui.slider_bewertung.value()
+        self.ui.lbl_sliderValue.setPixmap(QPixmap("Icons\\{0}_rating".format(sliderValue)))
 
 
 
@@ -26,10 +28,10 @@ class GUI(QtWidgets.QMainWindow):
         preis = self.ui.line_preis.text()
         menge_alt = self.ui.lbl_menge.text()
         menge_neu = float(menge_alt) + int(self.ui.combo_menge.currentText())
-        bewertung = int(self.ui.lbl_sliderValue.text())
+        bewertung = int(self.ui.slider_bewertung.value())
 
         connectionDB.updateAroma(aroma,menge_neu,bewertung,preis)
-        #self.close()
+        self.close()
 
     def getAttr(self,aroma):
         data = connectionDB.getAttributes(aroma)
@@ -38,7 +40,8 @@ class GUI(QtWidgets.QMainWindow):
         bewertung = data[6]
 
         self.ui.slider_bewertung.setValue(bewertung)
-        self.ui.lbl_sliderValue.setText(str(bewertung))
+        sliderValue = self.ui.slider_bewertung.value()
+        self.ui.lbl_sliderValue.setPixmap(QPixmap("Icons\\{0}_rating".format(sliderValue)))
         self.ui.lbl_menge.setText(str(menge))
         self.ui.line_preis.setText(str(preis))
 
