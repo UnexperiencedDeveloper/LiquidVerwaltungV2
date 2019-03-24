@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>251</width>
-    <height>204</height>
+    <width>256</width>
+    <height>212</height>
    </rect>
   </property>
   <property name="palette">
@@ -87,8 +87,8 @@
      <rect>
       <x>20</x>
       <y>21</y>
-      <width>193</width>
-      <height>173</height>
+      <width>226</width>
+      <height>184</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -285,10 +285,13 @@
      <item row="5" column="1">
       <widget class="QLabel" name="lbl_sliderValue">
        <property name="text">
-        <string>0</string>
+        <string/>
        </property>
        <property name="textFormat">
         <enum>Qt::AutoText</enum>
+       </property>
+       <property name="pixmap">
+        <pixmap>Icons/0_rating.png</pixmap>
        </property>
        <property name="alignment">
         <set>Qt::AlignHCenter|Qt::AlignTop</set>
