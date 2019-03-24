@@ -1,5 +1,6 @@
 import connectionDB
 from PyQt5 import QtWidgets, uic
+from PyQt5.QtGui import QPixmap
 
 
 #TODO Platzhalter löschen / Ersetzen
@@ -14,9 +15,10 @@ class GUI(QtWidgets.QMainWindow):
         self.loadList()
 
 
-    # When User Changes Slider Value -> LabelText Changes
+    # When User Changes Slider Value -> Image Changes
     def sliderChanged(self):
-        self.ui.lbl_sliderValue.setText(str(self.ui.slider_bewertung.value()))
+        sliderValue = self.ui.slider_bewertung.value()
+        self.ui.lbl_sliderValue.setPixmap(QPixmap("Icons\\{0}_rating".format(sliderValue)))
 
 
     # Loads/Reloads ListWidget via SQL Query
