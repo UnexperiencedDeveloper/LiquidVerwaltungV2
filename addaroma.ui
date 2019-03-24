@@ -170,7 +170,7 @@
       <x>21</x>
       <y>41</y>
       <width>282</width>
-      <height>256</height>
+      <height>264</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -395,10 +395,13 @@
      <item row="7" column="1">
       <widget class="QLabel" name="lbl_sliderValue">
        <property name="text">
-        <string>0</string>
+        <string/>
        </property>
        <property name="textFormat">
         <enum>Qt::AutoText</enum>
+       </property>
+       <property name="pixmap">
+        <pixmap>Icons/0_rating.png</pixmap>
        </property>
        <property name="alignment">
         <set>Qt::AlignHCenter|Qt::AlignTop</set>
